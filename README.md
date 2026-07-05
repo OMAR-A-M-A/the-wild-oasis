@@ -1,6 +1,6 @@
 # 🌲 The Wild Oasis
 
-**[Live Demo: Click Here to View The Wild Oasis](YOUR_LIVE_LINK_HERE)**
+[![Live Demo](https://img.shields.io/badge/LIVE%20DEMO-CLICK%20HERE-brightgreen?style=for-the-badge)](YOUR_LIVE_LINK_HERE)
 
 > **💡 Test Credentials:** (To explore the dashboard without creating an account)
 > - **Email:** test@example.com
