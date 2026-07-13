@@ -13,17 +13,18 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 
-const queryClint = new QueryClient({
+const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 60 * 1000,
     },
   },
 });
+window.__TANSTACK_QUERY_CLIENT__ = queryClient;
 
 function App() {
   return (
-    <QueryClientProvider client={queryClint}>
+    <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyle />
       <BrowserRouter>
@@ -41,6 +42,7 @@ function App() {
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Routes>
       </BrowserRouter>
+      
       <Toaster
         position="top-center"
         gutter={12}
