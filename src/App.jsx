@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
     },
   },
 });
-window.__TANSTACK_QUERY_CLIENT__ = queryClient;
+// window.__TANSTACK_QUERY_CLIENT__ = queryClient;
 
 function App() {
   return (
