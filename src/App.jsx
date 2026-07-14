@@ -15,6 +15,7 @@ import PageNotFound from "./pages/PageNotFound";
 import GlobalStyle from "./styles/GlobalStyles";
 import AppLayout from "./ui/AppLayout";
 import Checkin from "./pages/Checkin";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,7 +33,13 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout></AppLayout>}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<Navigate to="dashboard" replace />}></Route>
             <Route path="dashboard" element={<Dashboard></Dashboard>}></Route>
             <Route path="bookings" element={<Bookings></Bookings>}></Route>
