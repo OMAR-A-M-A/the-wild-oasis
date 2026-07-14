@@ -16,7 +16,7 @@ const FilterButton = styled.button`
   border: none;
 
   ${(props) =>
-    props.active &&
+    props.$active &&
     css`
       background-color: var(--color-brand-600);
       color: var(--color-brand-50);
@@ -39,6 +39,7 @@ function Filter({ filteredName, options }) {
   const filteredLabel = searchParam.get(filteredName) || options[0].value;
   function handleClick(value) {
     searchParam.set(filteredName, value);
+    if (searchParam.get("page")) searchParam.set("page", 1);
     setSearchParam(searchParam);
   }
   return (
@@ -46,7 +47,7 @@ function Filter({ filteredName, options }) {
       {options.map((option) => (
         <FilterButton
           key={option.value}
-          active={option.value === filteredLabel}
+          $active={option.value === filteredLabel}
           disabled={option.value === filteredLabel}
           onClick={() => handleClick(option.value)}
         >
