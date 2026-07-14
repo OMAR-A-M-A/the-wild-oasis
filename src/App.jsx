@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Bookings from "./pages/Bookings";
+import Booking from "./pages/Booking";
 import Cabins from "./pages/Cabins";
 import Users from "./pages/Users";
 import Settings from "./pages/Settings";
@@ -33,6 +34,10 @@ function App() {
             <Route index element={<Navigate to="dashboard" replace />}></Route>
             <Route path="dashboard" element={<Dashboard></Dashboard>}></Route>
             <Route path="bookings" element={<Bookings></Bookings>}></Route>
+            <Route
+              path="bookings/:bookingId"
+              element={<Booking></Booking>}
+            ></Route>
             <Route path="cabins" element={<Cabins></Cabins>}></Route>
             <Route path="users" element={<Users></Users>}></Route>
             <Route path="settings" element={<Settings></Settings>}></Route>
@@ -42,7 +47,7 @@ function App() {
           <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Routes>
       </BrowserRouter>
-      
+
       <Toaster
         position="top-center"
         gutter={12}
