@@ -2,11 +2,18 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import { DarkModeContext } from "./context/DarkModeContext.jsx";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "./ui/ErrorFallback.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <DarkModeContext>
-      <App />
-    </DarkModeContext>
+    <ErrorBoundary
+      FallbackComponent={ErrorFallback}
+      onReset={() => window.location.replace("/")}
+    >
+      <DarkModeContext>
+        <App />
+      </DarkModeContext>
+    </ErrorBoundary>
   </StrictMode>,
 );

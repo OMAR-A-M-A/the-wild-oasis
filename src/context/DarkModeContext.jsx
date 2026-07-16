@@ -4,7 +4,10 @@ import { useLocalStorageState } from "../hooks/useLocalStorageState";
 const DarkMode = createContext();
 
 function DarkModeContext({ children }) {
-  const [isDark, setIsDark] = useLocalStorageState(false, "isDarkMode");
+  const [isDark, setIsDark] = useLocalStorageState(
+    window.matchMedia("(prefers-color-scheme:dark)").matches,
+    "isDarkMode",
+  );
 
   function handleToggleDarkMode() {
     setIsDark((dark) => !dark);

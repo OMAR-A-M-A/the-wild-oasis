@@ -1,5 +1,4 @@
 import {
-  Cell,
   Legend,
   Pie,
   PieChart,
